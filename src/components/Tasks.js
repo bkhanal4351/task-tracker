@@ -1,33 +1,16 @@
-import { useState } from 'react'
+import Task from './Task'
 
-const Tasks = () =>{
-  const [tasks, setTasks] = useState([
-    
-      {
-        id: 1,
-        text: 'Doctors Appt',
-        day: '1st of feb',
-        remider: true,
-      },
-      
-      {
-        id: 2,
-        text: 'Interview Appt',
-        day: '26th of Sept 2022',
-        remider: true,
-      }
-        
-      
-
-  ])
-
-
-
-
-
+const Tasks = ({tasks, onDelete, onToggle}) => {
   return (
     <>
-    {tasks.map((tasks)=> (<h3 key={tasks.id}>{tasks.text}  {tasks.day}  </h3> ))}
+      {tasks.map((task) => (
+      <Task key={task.id} 
+      task={task} 
+      onDelete={onDelete}
+      onToggle={onToggle}
+
+      />
+      ))}
     </>
   )
 }
